@@ -9,4 +9,5 @@ rule "totalCpuHardConstraint"
 		Number( $totalReqCpu : intValue() > cpu ) from accumulate ( Process( computer == $c , $reqCpu : requiredCpu),
 			sum($reqCpu)) 
 	then
+		scoreHolder.addHardConstraintMatch(kcontext, -($totalReqCpu - $cpu));
 end
