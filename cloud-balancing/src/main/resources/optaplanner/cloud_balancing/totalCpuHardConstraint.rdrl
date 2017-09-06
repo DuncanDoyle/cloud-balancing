@@ -5,8 +5,8 @@ import java.lang.Number;
 rule "totalCpuHardConstraint"
 	dialect "mvel"
 	when
-		$c : Computer( cpu : cpu)
-		Number( $totalReqCpu : intValue() > cpu ) from accumulate ( Process( computer == $c , $reqCpu : requiredCpu),
+		$c : Computer( $cpu : cpu)
+		Number( $totalReqCpu : intValue() > $cpu ) from accumulate ( Process( computer == $c , $reqCpu : requiredCpu),
 			sum($reqCpu)) 
 	then
 		scoreHolder.addHardConstraintMatch(kcontext, -($totalReqCpu - $cpu));
