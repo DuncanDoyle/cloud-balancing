@@ -12,12 +12,12 @@ public class Process implements java.io.Serializable
 
    @org.kie.api.definition.type.Label("ID")
    private long id;
-   @org.kie.api.definition.type.Label("Required CPU")
-   private int reqCpu;
-
    @org.kie.api.definition.type.Label("Computer")
    @org.optaplanner.core.api.domain.variable.PlanningVariable(valueRangeProviderRefs = { "computers" })
    private optaplanner.cloud_balancing.Computer computer;
+
+   @org.kie.api.definition.type.Label(value = "Required CPU")
+   private int requiredCpu;
 
    public Process()
    {
@@ -33,16 +33,6 @@ public class Process implements java.io.Serializable
       this.id = id;
    }
 
-   public int getReqCpu()
-   {
-      return this.reqCpu;
-   }
-
-   public void setReqCpu(int reqCpu)
-   {
-      this.reqCpu = reqCpu;
-   }
-
    public optaplanner.cloud_balancing.Computer getComputer()
    {
       return this.computer;
@@ -53,12 +43,22 @@ public class Process implements java.io.Serializable
       this.computer = computer;
    }
 
-   public Process(long id, int reqCpu,
-         optaplanner.cloud_balancing.Computer computer)
+   public int getRequiredCpu()
+   {
+      return this.requiredCpu;
+   }
+
+   public void setRequiredCpu(int requiredCpu)
+   {
+      this.requiredCpu = requiredCpu;
+   }
+
+   public Process(long id, optaplanner.cloud_balancing.Computer computer,
+         int requiredCpu)
    {
       this.id = id;
-      this.reqCpu = reqCpu;
       this.computer = computer;
+      this.requiredCpu = requiredCpu;
    }
 
 }
