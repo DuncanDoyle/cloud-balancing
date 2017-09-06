@@ -9,12 +9,13 @@ public class Process implements java.io.Serializable
 
    static final long serialVersionUID = 1L;
 
-   @org.kie.api.definition.type.Label(value = "ID")
+   @org.kie.api.definition.type.Label("ID")
    private long id;
-   @org.kie.api.definition.type.Label(value = "CPU")
-   private int cpu;
-   @org.kie.api.definition.type.Label(value = "Cost")
-   private int cost;
+   @org.kie.api.definition.type.Label(value = "Required CPU")
+   private int reqCpu;
+
+   @org.kie.api.definition.type.Label(value = "Computer")
+   private optaplanner.cloud_balancing.Computer computer;
 
    public Process()
    {
@@ -30,31 +31,32 @@ public class Process implements java.io.Serializable
       this.id = id;
    }
 
-   public int getCpu()
+   public int getReqCpu()
    {
-      return this.cpu;
+      return this.reqCpu;
    }
 
-   public void setCpu(int cpu)
+   public void setReqCpu(int reqCpu)
    {
-      this.cpu = cpu;
+      this.reqCpu = reqCpu;
    }
 
-   public int getCost()
+   public optaplanner.cloud_balancing.Computer getComputer()
    {
-      return this.cost;
+      return this.computer;
    }
 
-   public void setCost(int cost)
+   public void setComputer(optaplanner.cloud_balancing.Computer computer)
    {
-      this.cost = cost;
+      this.computer = computer;
    }
 
-   public Process(long id, int cpu, int cost)
+   public Process(long id, int reqCpu,
+         optaplanner.cloud_balancing.Computer computer)
    {
       this.id = id;
-      this.cpu = cpu;
-      this.cost = cost;
+      this.reqCpu = reqCpu;
+      this.computer = computer;
    }
 
 }
