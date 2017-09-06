@@ -6,7 +6,7 @@ rule "totalCpuHardConstraint"
 	dialect "mvel"
 	when
 		$c : Computer( $cpu : cpu)
-		Number( intValue() > $cpu ) from accumulate ( Process( computer == $c , $reqCpu : reqCpu),
+		Number( intValue() > $cpu ) from accumulate ( Process( computer == $c ),
 			sum($reqCpu)) 
 	then
 		scoreHolder.addSoftConstraintMatch(kcontext, -($cost));
