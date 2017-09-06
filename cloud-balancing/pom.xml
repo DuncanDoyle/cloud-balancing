@@ -7,6 +7,18 @@
   <version>1.0.0</version>
   <packaging>kjar</packaging>
   <name>cloud-balancing</name>
+  <properties>
+    <version.org.kie>6.4.0.Final-redhat-13</version.org.kie>
+  </properties>
+  
+  <dependencies>
+    <dependency>
+      <groupId>org.optaplanner</groupId>
+      <artifactId>optaplanner-core</artifactId>
+      <version>${version.org.kie}</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
   <repositories>
     <repository>
       <id>guvnor-m2-repo</id>
