@@ -8,7 +8,7 @@
   <packaging>kjar</packaging>
   <name>cloud-balancing</name>
   <properties>
-    <version.org.kie>6.4.0.Final-redhat-13</version.org.kie>
+    <version.org.kie>6.5.0.Final-redhat-2</version.org.kie>
   </properties>
   
   <dependencies>
